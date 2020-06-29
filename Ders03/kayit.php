@@ -21,20 +21,20 @@
 </style>
 <body>
 <h1> Kayıt Sayfası</h1>
-<form>
-<label for="email">Email</label>
-<input type="text" placeholder="Email" name="email" required>
-<br/>
-<label for="kullaniciAdi"><b>Kullanıcı Adi</b></label>
-<input type="text" placeholder="Kullanıcı Adı" name="kullaniciAdi" required>
-<br/>
-<label for="adi"><b>Ad</b></label>
-<input type="text" placeholder="Ad" name="ad" required>
-<br/>
-<label for="soyadi"><b>Soyadı</b></label>
-<input type="text" placeholder="Soyad" name="soyadi" required>
+<form action="dbKaydet.php" method="POST">
+    <label for="email">Email</label>
+    <input type="text" placeholder="Email" name="email" required>
+    <br/>
+    <label for="kullaniciAdi"><b>Kullanıcı Adi</b></label>
+    <input type="text" placeholder="Kullanıcı Adı" name="kullaniciAdi" required>
+    <br/>
+    <label for="adi"><b>Ad</b></label>
+    <input type="text" placeholder="Ad" name="ad" required>
+    <br/>
+    <label for="soyadi"><b>Soyadı</b></label>
+    <input type="text" placeholder="Soyad" name="soyadi" required>
 
-<input type="submit" value="kaydet">
+    <input type="submit" value="kaydet">
 </form>
 
 </body>
