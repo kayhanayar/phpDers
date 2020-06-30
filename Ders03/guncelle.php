@@ -14,22 +14,22 @@
     $query = "SELECT * FROM kullanicilar";
     
     $result = mysqli_query($db_server,$query);
+    //Veri tabanında veri yoksa formda textboxlar boş görünmesi için
+    $kullaniciAdi   = "";
+    $adi            = "";
+    $soyadi         = "";
+    $email          = "";
 
 if ( $_SERVER['REQUEST_METHOD'] == 'POST' )
 {
-    echo "psot";
+   
 
 
     $kullaniciAdi   = $_POST['kullaniciAdi'];
     $adi            = $_POST['ad'];
     $soyadi         = $_POST['soyadi'];
     $email          = $_POST['email'];
-    
-
-
-    
-    
-       
+        
     if(isset($_POST["sonraki"]))
     {
         if($result->num_rows>0)
@@ -79,7 +79,14 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' )
     }
     else if(isset($_POST["guncelle"]))
     {
+        $guncelKullaniciadi = $_POST['guncelKullaniciAdi'];
+        $query = "UPDATE kullanicilar SET kullaniciadi='$kullaniciAdi', adi='$adi', soyadi='$soyadi', email='$email' WHERE kullaniciadi='$guncelKullaniciadi';";
 
+        $result = mysqli_query($db_server,$query);
+        if($result)
+        {
+            echo "<br/>guncellendi";
+        }
     }
 
 
@@ -122,17 +129,18 @@ mysqli_close($db_server);
 </style>
 <form action="guncelle.php" method="POST">
     <label for="email">Email</label>
-    <input type="text" placeholder="Email" name="email" value=<?php echo $email ?> required>
+    <input type="text" placeholder="Email" name="email" value="<?php echo $email ?>" >
     <br/>
     <label for="kullaniciAdi"><b>Kullanıcı Adi</b></label>
-    <input type="text" placeholder="Kullanıcı Adı" name="kullaniciAdi" value=<?php echo $kullaniciAdi ?> required>
+    <input type="text" placeholder="Kullanıcı Adı" name="kullaniciAdi" value="<?php echo $kullaniciAdi ?>" >
     <br/>
     <label for="adi"><b>Ad</b></label>
-    <input type="text" placeholder="Ad" name="ad" value=<?php echo $adi ?> required>
+    <input type="text" placeholder="Ad" name="ad" value="<?php echo $adi ?>" >
     <br/>
     <label for="soyadi"><b>Soyadı</b></label>
-    <input type="text" placeholder="Soyad" name="soyadi" value=<?php echo $soyadi ?> required>
+    <input type="text" placeholder="Soyad" name="soyadi" value="<?php echo $soyadi ?>" >
     <input type="submit" name="onceki" value="onceki">
     <input type="submit" name="guncelle" value="güncelle">
+    <input type="hidden" name="guncelKullaniciAdi" value="<?php echo $kullaniciAdi ?>" >
     <input type="submit" name="sonraki" value="sonraki">
 </form>
