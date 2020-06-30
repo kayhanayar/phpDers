@@ -43,7 +43,7 @@ if($result->num_rows>0)
         echo "<td>e-mail:</td><td>".$row["email"]."</td>";
         echo "<tr/>";
         
-       <input
+       
     }
     echo "<table>";
     
