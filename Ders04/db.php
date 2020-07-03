@@ -22,4 +22,17 @@
             return null;
         }
     }
+
+    function kullaniciGuncelle($server,$kullaniciAdi,$kullaniciBilgileri){
+
+        $yeniKullaniciAdi = $kullaniciBilgileri['kullaniciadi'];
+        $yeniad = $kullaniciBilgileri['ad'];
+        $yenisoyad = $kullaniciBilgileri['soyad'];
+        $yeniemail = $kullaniciBilgileri['email'];
+        
+        $query = "UPDATE kullanicilar SET kullaniciadi='$yeniKullaniciAdi', adi='$yeniad', soyadi='$yenisoyad', email='$yeniemail' WHERE kullaniciadi='$kullaniciAdi';";
+        $result = mysqli_query($server,$query);
+        
+        return $result;
+    }
 ?>

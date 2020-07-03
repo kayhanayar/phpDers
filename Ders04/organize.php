@@ -9,10 +9,7 @@
     $adi            = "";
     $soyadi         = "";
     $email          = "";
-
- 
-
-    
+  
 ?>
 
 <style>
@@ -57,16 +54,22 @@
                 echo "<input type='text' placeholder='Ad' name='ad' value='$adi' >";
 
                 echo "<label for='Soyad'><b>Soyad</b></label>";
-                echo "<input type='text' placeholder='Soyad' name='Soyad' value='$soyad' >";
+                echo "<input type='text' placeholder='Soyad' name='soyad' value='$soyad' >";
 
                 echo "<label for='email'><b>Ad</b></label>";
                 echo "<input type='text' placeholder='email' name='email' value='$email' >";
                 echo "<br/>";
+                echo "<input type='hidden' name='guncelKullaniciAdi' value='$guncelKullaniciadi' >";
+
                 echo "<input type='submit' name='guncelle' value='Güncelle'>";
             }
             if(isset($_POST["guncelle"]))
             {
-
+               $result =  kullaniciGuncelle($db_server,$_POST["guncelKullaniciAdi"],$_POST);
+               if($result)
+               {
+                   echo "güncelleme yapıldı";
+               }
             }
 
         
@@ -78,21 +81,5 @@
         }   
     ?>
     <br/>
-    
-    <?php 
-        
-    /*
-    <label for="kullaniciAdi"><b>Kullanıcı Adi</b></label>
-    <input type="text" placeholder="Kullanıcı Adı" name="kullaniciAdi" value="<?php echo $kullaniciAdi ?>" >
-    <br/>
-    <label for="adi"><b>Ad</b></label>
-    <input type="text" placeholder="Ad" name="ad" value="<?php echo $adi ?>" >
-    <br/>
-    <label for="soyadi"><b>Soyadı</b></label>
-    <input type="text" placeholder="Soyad" name="soyadi" value="<?php echo $soyadi ?>" >
-    <input type="submit" name="onceki" value="onceki">
-    <input type="submit" name="guncelle" value="güncelle">
-    <input type="hidden" name="guncelKullaniciAdi" value="<?php echo $kullaniciAdi ?>" >
-    */
-    ?>
+ 
 </form>
