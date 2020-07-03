@@ -22,9 +22,6 @@
 
 if ( $_SERVER['REQUEST_METHOD'] == 'POST' )
 {
-   
-
-
     $kullaniciAdi   = $_POST['kullaniciAdi'];
     $adi            = $_POST['ad'];
     $soyadi         = $_POST['soyadi'];
