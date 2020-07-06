@@ -49,9 +49,22 @@
         if($result)
         {
             echo "Kayit başarı ile yapıldı";
+            return $result;
         }      
         else{
-            echo "Kayit başarı ile yapıldı".mysqli_error($server);
+            echo "Kayıt hatası yapıldı :".mysqli_error($server);
+            return null;
         }   
+    }
+    function kullaniciGirisYap($server,$kullaniciadi,$sifre){
+        $result = kullanciGetir($server,$kullaniciadi);
+
+        if($result)
+        {
+            if($result['sifre']==$sifre)
+            {
+                
+            }
+        }
     }
 ?>
