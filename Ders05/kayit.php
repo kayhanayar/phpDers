@@ -1,11 +1,11 @@
 <html>
 <style>
-.form {
+form {
     padding: 16px;
     max-width:600px;
-
+    margin:40px auto;
 }
- input[type=text]{
+ input[type=text],[type=password]{
      width: 100%;
      padding: 12px 20px;
      border-radius: 8px;
@@ -24,18 +24,22 @@
 <h1> Kayıt Sayfası</h1>
 
 <form action="dbKaydet.php" method="POST">
-    <label for="email">Email</label>
-    <input type="text" placeholder="Email" name="email" required>
-    <br/>
+
     <label for="kullaniciAdi"><b>Kullanıcı Adi</b></label>
-    <input type="text" placeholder="Kullanıcı Adı" name="kullaniciAdi" required>
+    <input type="text" placeholder="Kullanıcı Adı" name="kullaniciadi" required>
     <br/>
     <label for="adi"><b>Ad</b></label>
     <input type="text" placeholder="Ad" name="ad" required>
     <br/>
     <label for="soyadi"><b>Soyadı</b></label>
     <input type="text" placeholder="Soyad" name="soyadi" required>
-
+    <br/>  
+    <label for="email"><b>Email</b></label>
+    <input type="text" placeholder="Email" name="email" required>
+    <br/>
+    <label for="sifre"><b>Şifre</b></label>
+    <input type="password" placeholder="Şifre" name="sifre" required>
+    <br/>
     <input type="submit" value="kaydet">
 </form>
 
