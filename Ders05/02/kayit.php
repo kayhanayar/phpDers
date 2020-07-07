@@ -20,26 +20,29 @@ form {
     margin-top: 10px;
  }
 </style>
-<script>
-function kaydetSayfasinaGit() {
-    location.href = "http://www.w3schools.com";
-}
-</script>
 <body>
-<form action="dbGiris.php" method="POST">
+<h1> Kayıt Sayfası</h1>
+
+<form action="dbKaydet.php" method="POST">
 
     <label for="kullaniciAdi"><b>Kullanıcı Adi</b></label>
     <input type="text" placeholder="Kullanıcı Adı" name="kullaniciadi" required>
     <br/>
+    <label for="adi"><b>Ad</b></label>
+    <input type="text" placeholder="Ad" name="ad" required>
+    <br/>
+    <label for="soyadi"><b>Soyadı</b></label>
+    <input type="text" placeholder="Soyad" name="soyadi" required>
+    <br/>  
+    <label for="email"><b>Email</b></label>
+    <input type="text" placeholder="Email" name="email" required>
+    <br/>
     <label for="sifre"><b>Şifre</b></label>
     <input type="password" placeholder="Şifre" name="sifre" required>
     <br/>
-    <input type="button" onclick="kaydetSayfasinaGit()" value="Kayıt Ol">
-    <input type="submit" value="Giriş">
+    <input type="submit" value="kaydet">
 </form>
+
 </body>
+
 </html>
-<?php
-
-
-?>

@@ -56,15 +56,20 @@
             return null;
         }   
     }
-    function kullaniciGirisYap($server,$kullaniciadi,$sifre){
+    function kullaniciGirisKontrol($server,$kullaniciadi,$sifre){
+
         $result = kullanciGetir($server,$kullaniciadi);
 
         if($result)
         {
             if($result['sifre']==$sifre)
             {
-                
+                return true;
             }
+        }
+        else
+        {
+            return false;
         }
     }
 ?>
