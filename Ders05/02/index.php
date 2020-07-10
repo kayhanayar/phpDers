@@ -4,14 +4,14 @@
     
     if($_SERVER['REQUEST_METHOD'] == 'POST')
     {
-        
+        session_start();
         session_destroy();
         header("location:./giris.php");
     }
     session_start();
     $kullaniciadi  = $_SESSION['kullaniciadi'];
     $sifre = $_SESSION['sifre'];
-    
+    echo $kullaniciadi." ".$sifre;
     if(!kullaniciGirisKontrol($db_server,$kullaniciadi,$sifre))
     {
         header("location:./giris.php");
