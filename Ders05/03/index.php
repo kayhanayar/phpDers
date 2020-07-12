@@ -1,10 +1,12 @@
 <?php
 
-    require_once("db.php");
+    require_once("dbconnection.php");
+    require_once("dbfunctions.php");
   
     if(postAktifMi())
     {
        kullaniciDektiviteEt();
+    
     }
    
     yetkiliKullaniciKontrol($db_server);

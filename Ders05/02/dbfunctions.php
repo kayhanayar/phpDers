@@ -1,16 +1,10 @@
 <?php
-    require_once("config.php");
-    
-    $db_server = mysqli_connect($db_hostname,$db_username,$db_password);
- 
-    if(!$db_server)
-        echo "mysql'e bağlanamadı".mysqli_error($db_server);
+    //veri tabanında kullanıcı bilgilerini barındıran satırı getirir
+    //ilk parametresi veritabanı bağlantısı
+    //ikinci parametresi kullanici adi
+    function kullanciGetir($server,$kullaniciadi){
 
-    mysqli_select_db($db_server,$db_database);   
-
-    function kullanciGetir($server,$kullaniciId){
-
-        $query = "SELECT * FROM tablokullanicilar WHERE kullaniciadi='$kullaniciId';";
+        $query = "SELECT * FROM tablokullanicilar WHERE kullaniciadi='$kullaniciadi';";
 
         $result = mysqli_query($server,$query);
 
@@ -23,6 +17,9 @@
         }
     }
 
+    //veritabaınındaki istenilen kullanıcının bilgilerini günceller.
+    //son parametreye formdan gelen POST dizisi verilebilir
+    //veya kullanıcı bilgilerini barındıran bir dizi verilebilir.
     function kullaniciGuncelle($server,$kullaniciAdi,$kullaniciBilgileri){
 
         $yeniKullaniciAdi = $kullaniciBilgileri['kullaniciadi'];
@@ -35,6 +32,8 @@
         
         return $result;
     }
+
+    //fonksiyon kendisine verilen kullanıcı bilgilerini veri tabanına kaydeder.
     function kullaniciKaydet($server,$kullaniciBilgileri){
         $kullaniciadi   = $_POST['kullaniciadi'];
         $adi            = $_POST['ad'];
@@ -56,6 +55,10 @@
             return null;
         }   
     }
+    //Fonksiyon kendisine verilen kullanicinin veri tabanında olup olmadığını 
+    // kontrol eder. eğer kullanıcıyı bulamazsa false dönecektir.
+    //eğer kullanıcıyı bulursa bu sefer veritabanındaki şifre ile fonksiyona verilen şifre
+    //karşılaştırılmaktadır. eşleşme varsa true döner aksi halde false döner.
     function kullaniciGirisKontrol($server,$kullaniciadi,$sifre){
 
         $result = kullanciGetir($server,$kullaniciadi);
@@ -67,9 +70,6 @@
                 return true;
             }
         }
-        else
-        {
-            return false;
-        }
+        return false;
     }
 ?>

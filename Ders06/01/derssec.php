@@ -1,5 +1,6 @@
 <?php
-    require_once("db.php");
+    require_once("dbconnection.php");
+    require_once("dbfunctions.php");
     yetkiliKullaniciKontrol($db_server);
 ?>
 <html>
@@ -22,7 +23,7 @@ table, th, td {
 <?php
 
 $dersler=dersleriGetir($db_server);
-$derssayisi = 0;
+
 if($dersler->num_rows>0)
 {
     while($row = siradakiDers($dersler)){
@@ -31,9 +32,9 @@ if($dersler->num_rows>0)
         echo "<td>".$row["dersadi"]."</td>";
         echo "<td>".$row["donem"]."</td>";
         echo "<td>".$row["kredi"]."</td>";
-        echo "<td><input type='checkbox'  name='$derssayisi' value='$dersadi'></td>";
+        echo "<td><input type='checkbox'  name='dersler[]' value='$dersadi'></td>";
         echo "<tr/>";
-        $derssayisi++;
+        
     }
 
     
@@ -44,7 +45,6 @@ if($dersler->num_rows>0)
 
 <input type="submit" value="kaydet">
 
-<input type="hidden" name="dersSayisi" value='<?php echo $derssayisi ?>'>
 
 </form>
 

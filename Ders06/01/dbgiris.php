@@ -1,5 +1,6 @@
 <?php
-    require_once("db.php");
+    require_once("dbconnection.php");
+    require_once("dbfunctions.php");
 
     $kullaniciadi = $_POST["kullaniciadi"];
     $sifre = $_POST["sifre"];
