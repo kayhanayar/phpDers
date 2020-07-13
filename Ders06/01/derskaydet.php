@@ -1,6 +1,7 @@
 <?php
-    require_once("dbconnection.php");
-    require_once("dbfunctions.php");
+    require_once(__DIR__."/sabitler.php");
+    require_once(DB_YOL."/dbconnection.php");
+    require_once(DB_YOL."/db/dbfunctions.php");
     yetkiliKullaniciKontrol($db_server);
 
 

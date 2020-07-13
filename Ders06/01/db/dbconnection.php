@@ -1,5 +1,5 @@
 <?php
-    require_once("config.php");
+    require_once("dbconfig.php");
     
     $db_server = mysqli_connect($db_hostname,$db_username,$db_password);
  
@@ -8,5 +8,7 @@
 
     mysqli_select_db($db_server,$db_database);   
 
+
+   
 
 ?>

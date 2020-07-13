@@ -1,6 +1,7 @@
 <?php
-    require_once("dbconnection.php");
-    require_once("dbfunctions.php");
+    require_once("../sabitler.php");
+    require_once(DB_YOL."/dbconnection.php");
+    require_once(DB_YOL."/dbfunctions.php");
     
     
     if(postAktifMi())
@@ -11,7 +12,7 @@
             $dersler = $_POST['dersler'];
 
             secilidersleriKaydet($db_server,$_SESSION["kullaniciadi"],$dersler);
-            header("location:./index.php");
+            header("location:../index.php");
         }
         
     }

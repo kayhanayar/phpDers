@@ -7,7 +7,7 @@ function kaydetSayfasinaGit() {
 }
 </script>
 <body>
-<form action="dbGiris.php" method="POST">
+<form action="./formactions/dbGiris.php" method="POST">
 
     <label for="kullaniciAdi"><b>Kullanıcı Adi</b></label>
     <input type="text" placeholder="Kullanıcı Adı" name="kullaniciadi" required>

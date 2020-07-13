@@ -151,6 +151,19 @@
             return null;
         }       
     }
+    function dersGetir($server,$dersadi){
+        $query = "SELECT * FROM tabloders where dersadi='$dersadi'";
+
+        $result = mysqli_query($server,$query);
+
+        if($result->num_rows>0){
+            return $result->fetch_assoc();
+        }
+        else
+        {
+            return null;
+        }        
+    }
     //veri tabanından getirilen derslerin sıradakini getirir
     function siradakiDers($dersler){
         return $dersler->fetch_assoc();
@@ -167,4 +180,13 @@
         }
 
     }
+    function kullaniciDersleriGetir($server,$kullaniciAdi){
+
+        $sorgu = "select dersadi from tablosecilendersler where kullaniciadi='$kullaniciAdi'";
+
+        $sonuc = mysqli_query($server,$sorgu);
+
+        return $sonuc;
+    }
+
 ?>

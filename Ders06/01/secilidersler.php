@@ -4,6 +4,7 @@
     require_once(DB_YOL."/dbfunctions.php");
 
     yetkiliKullaniciKontrol($db_server);
+    kullaniciDersleriGetir($db_server,$_SESSION["kullaniciadi"]);
 ?>
 <html>
 <body>
@@ -14,7 +15,7 @@ table, th, td {
 }
 
 </style>
-<form action="./formactions/dbdersseckaydet.php" method="POST">
+<form action="./formactions/dbseciliderssil.php" method="POST">
 <table>
     <tr>
         <th>Ders adı</th>
@@ -24,16 +25,19 @@ table, th, td {
     </tr>
 <?php
 
-$dersler=dersleriGetir($db_server);
+$dersler=kullaniciDersleriGetir($db_server,$_SESSION["kullaniciadi"]);
 
 if($dersler->num_rows>0)
 {
     while($row = siradakiDers($dersler)){
+
         $dersadi = $row['dersadi'];
+        $dersbilgileri = dersGetir($db_server,$dersadi);
+       
         echo "<tr>";
-        echo "<td>".$row["dersadi"]."</td>";
-        echo "<td>".$row["donem"]."</td>";
-        echo "<td>".$row["kredi"]."</td>";
+        echo "<td>".$dersbilgileri["dersadi"]."</td>";
+        echo "<td>".$dersbilgileri["donem"]."</td>";
+        echo "<td>".$dersbilgileri["kredi"]."</td>";
         echo "<td><input type='checkbox'  name='dersler[]' value='$dersadi'></td>";
         echo "<tr/>";
         
@@ -45,7 +49,7 @@ if($dersler->num_rows>0)
 ?>
 </table>
 
-<input type="submit" value="kaydet">
+<input type="submit" value="sil">
 
 
 </form>
