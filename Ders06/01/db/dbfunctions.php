@@ -188,5 +188,12 @@
 
         return $sonuc;
     }
+    function seciliDersSil($server,$kullaniciAdi,$dersadi){
+        $sorgu = "DELETE FROM tablosecilendersler WHERE kullaniciadi='$kullaniciAdi' AND dersadi='$dersadi'";
+
+        $sonuc = mysqli_query($server,$sorgu);
+
+        return $sonuc;
+    }
 
 ?>

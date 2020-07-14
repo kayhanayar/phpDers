@@ -11,7 +11,10 @@
             session_start();
             $dersler = $_POST['dersler'];
 
-            secilidersleriKaydet($db_server,$_SESSION["kullaniciadi"],$dersler);
+            for($sayac=0;$sayac<count($dersler);$sayac++){
+                seciliDersSil($db_server,$_SESSION["kullaniciadi"],$dersler[$sayac]);
+            }
+            
             header("location:../index.php");
         }
         

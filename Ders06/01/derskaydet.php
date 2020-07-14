@@ -1,7 +1,7 @@
 <?php
     require_once(__DIR__."/sabitler.php");
     require_once(DB_YOL."/dbconnection.php");
-    require_once(DB_YOL."/db/dbfunctions.php");
+    require_once(DB_YOL."/dbfunctions.php");
     yetkiliKullaniciKontrol($db_server);
 
 
@@ -34,7 +34,7 @@ form {
 <body>
 <h1> Ders Kayıt Sayfası</h1>
 
-<form action="dbderskaydet.php" method="POST">
+<form action="./formactions/dbderskaydet.php" method="POST">
 
     <label for="dersadi"><b>Ders Adı</b></label>
     <input type="text" placeholder="Ders adı" name="dersadi" required>

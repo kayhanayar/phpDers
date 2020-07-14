@@ -7,7 +7,7 @@
     {
        
         dersKaydet($db_server,$_POST);
-
+        header("Location:../derskaydet.php");
     }
    
     yetkiliKullaniciKontrol($db_server);
