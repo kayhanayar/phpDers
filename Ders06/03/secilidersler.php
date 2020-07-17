@@ -1,23 +1,7 @@
 <?php
-    require_once("./sabitler.php");
-    require_once(DB_YOL."/dbconnection.php");
-    require_once(DB_YOL."/dbfunctions.php");
-
-    yetkiliKullaniciKontrol($db_server);
+    require_once(__DIR__."/sabitler.php");
+    require_once(SABLON_YOL."/linkler.php");
     kullaniciDersleriGetir($db_server,$_SESSION["kullaniciadi"]);
-?>
-<html>
-<body>
-<style>
-    
-table, th, td {
-  border: 1px solid black;
-}
-
-</style>
-
-<?php
-require_once("linkler.php");
 ?>
 
 
@@ -60,6 +44,7 @@ if($dersler->num_rows>0)
 
 
 </form>
+<?php
+require_once(SABLON_YOL."/taban.php");
 
-</body>
-</html>
+?>

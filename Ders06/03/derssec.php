@@ -1,21 +1,8 @@
-<?php
-    require_once("./sabitler.php");
-    require_once(DB_YOL."/dbconnection.php");
-    require_once(DB_YOL."/dbfunctions.php");
 
-    yetkiliKullaniciKontrol($db_server);
-?>
-<html>
-<body>
-<style>
-    
-table, th, td {
-  border: 1px solid black;
-}
 
-</style>
 <?php
-require_once("linkler.php");
+    require_once(__DIR__."/sabitler.php");
+    require_once(SABLON_YOL."/linkler.php");
 ?>
 
 <form action="./formactions/dbdersseckaydet.php" method="POST">
@@ -42,8 +29,6 @@ if($dersler->num_rows>0)
         echo "<tr/>";
         
     }
-
-    
 }
 
 ?>
@@ -53,6 +38,7 @@ if($dersler->num_rows>0)
 
 
 </form>
+<?php
+require_once(SABLON_YOL."/taban.php");
 
-</body>
-</html>
+?>

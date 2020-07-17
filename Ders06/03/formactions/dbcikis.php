@@ -4,12 +4,9 @@
     require_once(DB_YOL."/dbconnection.php");
     require_once(DB_YOL."/dbfunctions.php");
     
-    if(postAktifMi())
-    {
-       kullaniciDektiviteEt();
+    kullaniciDektiviteEt();
 
-       header("location:../giris.php");
-    }
-   
+    header("location:../giris.php");
+    
     
 ?>

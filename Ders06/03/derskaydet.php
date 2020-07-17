@@ -1,37 +1,9 @@
+
 <?php
     require_once(__DIR__."/sabitler.php");
-    require_once(DB_YOL."/dbconnection.php");
-    require_once(DB_YOL."/dbfunctions.php");
-    yetkiliKullaniciKontrol($db_server);
-
-
-
+    require_once(SABLON_YOL."/linkler.php");
 ?>
 
-<html>
-<style>
-form {
-    padding: 16px;
-    max-width:600px;
-    margin:40px auto;
-}
- input[type=text],[type=password],select{
-     width: 100%;
-     padding: 12px 20px;
-     border-radius: 8px;
-     border: 2px solid red;
- }   
-
- input[type=submit],input[type=button] {
-    background-color: red;
-    border: none;
-    color: white;
-    padding: 16px 32px;
-    margin-top: 10px;
- }
-
-</style>
-<body>
 <h1> Ders Kayıt Sayfası</h1>
 
 <form action="./formactions/dbderskaydet.php" method="POST">
@@ -52,7 +24,10 @@ form {
     <br/>  
     <input type="submit" value="kaydet">
 </form>
+<?php
+require_once(SABLON_YOL."/taban.php");
 
+?>
 </body>
 
 </html>
