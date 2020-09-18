@@ -1,8 +1,11 @@
 <?php
 
-    require_once "./sabitler.php";
-   
-    //yetkiliKullaniciKontrol($db_server);
+    
+    require_once "./kutuphane/autoload.php";
+
+    $kullanici = Kullanici::aktifKullaniciGetir();
+    if(!$kullanici)
+      header("Location:../giris.php");
 
 ?>
 <html>
@@ -13,6 +16,7 @@
   <a href="guncelle.php">Bilgiler</a>
   <a href="uzerimdekiler.php">Kitaplar</a>
   <a href="kitapal.php">Kitap Al</a>
+  <a href="formactions/form_cikis.php">Çıkış</a>
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
     <i class="fa fa-bars"></i>
   </a>

@@ -23,8 +23,7 @@ class DB{
  
         if(!$this->db_server)
             echo "mysql'e bağlanamadı".mysqli_error($this->db_server);
-        else
-            echo "bağlandı";
+      
         mysqli_select_db($this->db_server,$dbconfig->db_database);   
     
     }
@@ -41,6 +40,19 @@ class DB{
         {
             return null;
         }
+    }
+    function kullaniciGirisKontrol($kullaniciadi,$sifre){
+
+        $result = $this->kullanciGetir($kullaniciadi);
+
+        if($result)
+        {
+            if($result['sifre']==$sifre)
+            {
+                return true;
+            }
+        }
+        return false;
     }
     function kullaniciKaydet($kullaniciBilgileri){
         

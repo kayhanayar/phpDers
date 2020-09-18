@@ -1,5 +1,5 @@
 <?php
-    require_once("../sabitler.php");
+     require_once "../kutuphane/autoload.php";
 
     $db = new DB();
 

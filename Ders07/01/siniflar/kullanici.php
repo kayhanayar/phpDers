@@ -37,7 +37,6 @@ class Kullanici
         $_SESSION["sifre"] = $this->sifre;
     }
     public function kullaniciDektiviteEt(){
-        session_start();
         session_destroy();
     }
 }

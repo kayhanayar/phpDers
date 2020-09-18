@@ -1,8 +1,6 @@
 
 <?php
     require_once(__DIR__."/sabitler.php");
-
-  
 ?>
 <style>
 form {
@@ -25,13 +23,8 @@ form {
     margin-top: 10px;
  }
 </style>
-</style>
 
 
-<?php
-
-require_once(SABLON_YOL."/linkler.php");
-?>
 <form action="formactions/form_kayit.php" method="POST">
 
     <label for="kullaniciAdi"><b>Kullanıcı Adi</b></label>
@@ -51,7 +44,3 @@ require_once(SABLON_YOL."/linkler.php");
     <br/>
     <input type="submit" value="kaydet">
 </form>
-
-<?php
-require_once(SABLON_YOL."/taban.php");
-?>
