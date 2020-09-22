@@ -27,6 +27,10 @@ class DB{
         mysqli_select_db($this->db_server,$dbconfig->db_database);   
     
     }
+    function query($querystring)
+    {
+        return mysqli_query($this->db_server,$querystring);
+    }
     function kullanciGetir($kullaniciadi){
 
         $query = "SELECT * FROM tablokullanicilar WHERE kullaniciadi='$kullaniciadi';";

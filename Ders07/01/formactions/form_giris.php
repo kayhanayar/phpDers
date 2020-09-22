@@ -6,8 +6,10 @@
 
     if($db->kullaniciGirisKontrol($_POST['kullaniciadi'],$_POST['sifre']) )
     {
-        $kullanici = new Kullanici($_POST['kullaniciadi'],$_POST['sifre']);
-        $kullanici->aktifEt();
+        $kullanici = Kullanici::girisIleOlstur($_POST);
+
+        Session::kullaniciAktifet($kullanici);
+
         header("Location:../index.php");
     }
 ?>

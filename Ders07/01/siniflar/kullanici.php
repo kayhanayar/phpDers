@@ -3,42 +3,70 @@
 class Kullanici
 {
     public $kullaniciadi;
+    public $ad;
+    public $soyad;
+    public $email;
     public $sifre;
 
-    public static function aktifKullaniciGetir()
+
+    public function __construct()
     {
+
+    }
+    public static function kayitileOlustur($kayit){
         
-        session_start();
-        if(array_key_exists("kullaniciadi",$_SESSION))
+        $kullanici = new Kullanici();
+
+        $kullanici->kullaniciadi    = $kayit['kullaniciadi'];
+        $kullanici->ad              = $kayit['ad'];
+        $kullanici->soyad           = $kayit['soyadi'];
+        $kullanici->email           = $kayit['email'];
+        $kullanici->sifre           = $kayit['sifre'];
+
+        return $kullanici;
+    }
+    public static function girisIleOlstur($giris){
+        $kullanici = new Kullanici();
+        
+        $kullaniciadi = $giris["kullaniciadi"];
+            
+        $sifre = $giris["sifre"] ;
+        
+        return $kullanici;
+    }
+    public function kaydet(){
+        if($this->kayitVarmi()==false)
         {
 
-            $kullaniciadi = $_SESSION["kullaniciadi"];
-            $sifre = $_SESSION["sifre"] ;
+            
+            $query = "INSERT INTO tablokullanicilar(kullaniciadi, ad, soyad, email,sifre) 
+                        VALUES ('$this->kullaniciadi', '$this->ad','$this->soyad','$this->email','$this->sifre')";
 
-            $kullanici = new Kullanici($kullaniciadi,$sifre);
+            $result =  $this->sorguYolla($query);
+            
+        }
+    }
+    public function kayitVarmi(){
+        
+        $query = "SELECT * FROM tablokullanicilar WHERE kullaniciadi='$this->kullaniciadi';";
 
-            return $kullanici;
+        $result =  $this->sorguYolla($query);
 
+        if($result->num_rows>0){
+            return true;
         }
         else
         {
-            return null;
+            return false;
         }
 
     }
-    public function __construct($kullaniciadi,$sifre)
-    {
-        $this->kullaniciadi = $kullaniciadi;
-        $this->sifre = $sifre;
+    public function sorguYolla($query){
+        $db = new DB();
+
+        return $db->query($query);
     }
-    public function aktifEt(){
-        session_start();
-        $_SESSION["kullaniciadi"]= $this->kullaniciadi;
-        $_SESSION["sifre"] = $this->sifre;
-    }
-    public function kullaniciDektiviteEt(){
-        session_destroy();
-    }
+
 }
 
 ?>

@@ -3,9 +3,10 @@
     
     require_once "./kutuphane/autoload.php";
 
-    $kullanici = Kullanici::aktifKullaniciGetir();
+    $kullanici = Session::aktifKullaniciGetir();
+
     if(!$kullanici)
-      header("Location:../giris.php");
+      header("Location:./giris.php");
 
 ?>
 <html>
