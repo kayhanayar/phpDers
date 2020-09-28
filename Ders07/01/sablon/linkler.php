@@ -14,10 +14,23 @@
 <body>
 <div class="topnav" id="myTopnav">
   <a href="index.php" class="active">Ana Sayfa</a>
-  <a href="guncelle.php">Bilgiler</a>
-  <a href="uzerimdekiler.php">Kitaplar</a>
-  <a href="kitapal.php">Kitap Al</a>
-  <a href="formactions/form_cikis.php">Çıkış</a>
+  <?php 
+    if($kullanici->adminMi()==true)
+    {
+      Html::link("kullanicilar.php","Kullanıcılar");
+      Html::link("kitapekle.php","Kitap Ekle");
+    }
+    else
+    {
+      Html::link("guncelle.php","Bilgiler");
+    }
+  
+    Html::link("uzerimdekiler.php","Üzerimdeki Kitaplar");
+    Html::link("kitapal.php","Kitap Al");
+    Html::link("formactions/form_cikis.php","Çıkış");
+
+  ?>
+  
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
     <i class="fa fa-bars"></i>
   </a>

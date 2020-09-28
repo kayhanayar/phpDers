@@ -27,9 +27,6 @@ function kayitol() {
     <input type="password" placeholder="Şifre Gir" name="sifre">
     <button type="button" onclick="kayitol()">Kayit Ol</button>
     <button type="submit">Giris</button>
-   
-   
-   
 
   </div>
 
