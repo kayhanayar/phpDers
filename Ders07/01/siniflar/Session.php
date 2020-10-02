@@ -13,18 +13,17 @@ class Session
 
         if(Session::kullaniciAktifmi())
         {
-            
             $kullanici = Kullanici::girisIleOlstur($_SESSION);
 
             return $kullanici;
-
         }
         else
         {
             return null;
         }
     }
-    public static function kullaniciAktifmi(){
+    public static function kullaniciAktifmi()
+    {
         if(array_key_exists("kullaniciadi",$_SESSION))
         {
             return true;

@@ -6,22 +6,18 @@
 ?>
 
 <h1>Yeni Kitap Ekle</h1>
-<form action="formactions/form_kitapKaydet.php" method="post">
-  <div class="container">
-    <label for="kitapadi"><b>Kitap Adı</b></label>
-    <input type="text" placeholder="Kitap Adı Gir" name="kitapadi">
+<?php
 
-    <label for="yazaradi"><b>Yazar adı</b></label>
-    <input type="password" placeholder="Yazar adı gir" name="yazaradi">
-    
-    <label for="isbn"><b>ISBN</b></label>
-    <input type="password" placeholder="ISBN Gir" name="isbn">   
-    <button type="submit">Kaydet</button>
+Html::formBaslat("form_kitapKaydet.php","post");
+  Html::divBaslat("container");
+    Html::yaziAlani("kitapadi","Kitap Adı");
+    Html::yaziAlani("yazaradi","Yazar adı");
+    Html::yaziAlani("isbn","ISBN");
+    Html::submit("Kaydet");
+  Html::divBitir();
+Html::formBitir();
 
-  </div>
-
-</form>
-
+?>
 <?php
     require_once("sablon/taban.php");
 ?>
