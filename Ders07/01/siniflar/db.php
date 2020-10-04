@@ -29,7 +29,10 @@ class DB{
     }
     function query($querystring)
     {
-        return mysqli_query($this->db_server,$querystring);
+        
+        $sonuc =  mysqli_query($this->db_server,$querystring);
+        
+        return $sonuc;
     }
     function kullanciGetir($kullaniciadi){
 

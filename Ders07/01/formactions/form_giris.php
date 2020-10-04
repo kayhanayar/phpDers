@@ -2,18 +2,17 @@
     require_once("../sabitler.php");
     require_once "../kutuphane/autoload.php";
 
-    $db = new DB();
+ 
+    $kullanici = Kullanici::girisIleOlstur($_POST);
 
-    if($db->kullaniciGirisKontrol($_POST['kullaniciadi'],$_POST['sifre']) )
+    if($kullanici!=null )
     {
-        $kullanici = Kullanici::girisIleOlstur($_POST);
-
         Session::kullaniciAktifet($kullanici);
 
         header("Location:../index.php");
     }
     else
     {
-        header("Location:../giris.php");
+       header("Location:../giris.php");
     }
 ?>

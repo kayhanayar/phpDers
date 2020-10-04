@@ -8,16 +8,20 @@
 <h1>Yeni Kitap Ekle</h1>
 <?php
 
-Html::formBaslat("form_kitapKaydet.php","post");
+Html::formBaslat("form_kitapEkle.php","post");
   Html::divBaslat("container");
     Html::yaziAlani("kitapadi","Kitap Adı");
     Html::yaziAlani("yazaradi","Yazar adı");
     Html::yaziAlani("isbn","ISBN");
+    Html::yaziAlani("adet","Adet");
     Html::submit("Kaydet");
   Html::divBitir();
 Html::formBitir();
 
 ?>
+
+
+
 <?php
     require_once("sablon/taban.php");
 ?>

@@ -24,6 +24,7 @@ class Session
     }
     public static function kullaniciAktifmi()
     {
+        Session::start();
         if(array_key_exists("kullaniciadi",$_SESSION))
         {
             return true;
