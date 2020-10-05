@@ -9,6 +9,7 @@ class Kullanici
     public $sifre;
     public $yetki;
     public $siradakiOduncKitap=null;
+    public $siradakiOkunmusKitap = null;
     public function __construct()
     {
         $this->yetki = false;
@@ -111,7 +112,40 @@ class Kullanici
         $sorgu ="delete from tabloodunckitaplar where kullaniciadi='$this->kullaniciadi' and kitapadi='$kitapAdi'";
         
         $result =  $this->sorguYolla($sorgu);
+        
     }
+    public function okunmusEkle($kitapAdi){
+        $sorgu ="insert into tablookunmuskitaplar(kullaniciadi,kitapadi) values('$this->kullaniciadi','$kitapAdi')";
+        $result =  $this->sorguYolla($sorgu);
+        print_r($result);
+    }
+  
+    public function siradakiOkunmusKitabiGetir(){
+
+
+
+        if($this->siradakiOkunmusKitap==null)
+        {
+            $sorgu = "SELECT * FROM tablookunmuskitaplar WHERE kullaniciadi='$this->kullaniciadi';";
+        
+            $this->siradakiOkunmusKitap =  $this->sorguYolla($sorgu);
+
+            
+            if($this->siradakiOkunmusKitap->num_rows>0){
+                return $this->siradakiOkunmusKitap->fetch_assoc();
+                
+            }            
+            else
+            {
+                $this->siradakiOkunmusKitap=null;
+            }
+        }
+        else
+        {
+            return $this->siradakiOkunmusKitap->fetch_assoc();
+        }
+        
+    }  
     public function siradakiKitabiGetir(){
 
 

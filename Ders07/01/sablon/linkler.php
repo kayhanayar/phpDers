@@ -26,6 +26,7 @@
     }
   
     Html::link("uzerimdekiler.php","Üzerimdeki Kitaplar");
+    Html::link("okunmuslar.php","Okuduğum Kitaplar");
     Html::link("kitapal.php","Kitap Al");
     Html::link("formactions/form_cikis.php","Çıkış");
 
